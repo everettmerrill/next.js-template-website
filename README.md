@@ -34,7 +34,7 @@ This portfolio is built to present backend projects in a documentation-first for
 
  ## Tech Stack
 
-[-] Frontend
+### Frontend
 
 [-] Next.js
 
@@ -44,7 +44,7 @@ This portfolio is built to present backend projects in a documentation-first for
 
 [-] Monaco Editor
 
-[-] Backend
+### Backend
 
 [-] Next.js API Routes
 
