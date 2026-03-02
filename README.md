@@ -1,6 +1,6 @@
-# everettmerrill-site
 
- ## Everett Merrill
+
+ # Everett Merrill Portfolio Website
 
 Documentation-style portfolio inspired by MDN, focused on backend engineering and clear technical writing. This site highlights system design thinking, API architecture, and JavaScript tutorials with interactive examples.
 
