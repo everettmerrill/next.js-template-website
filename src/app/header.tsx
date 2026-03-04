@@ -7,6 +7,7 @@ const ads = [
   {
     logo: "/codeSalmonLogoSmall.png",
     text: "See Drift. Stop Bugs. Ship Confidently with Code Salmon.",
+    mobileText: "Code Salmon — Detect Contract Drift",
     cta: "View Docs",
     href: "https://codesalmon.io/",
     bg: "bg-yellow-200",
@@ -17,6 +18,7 @@ const ads = [
   {
     logo: "beetleDronesMediaLogoSmall.png",
     text: "Bespoke Brand Curation: Identity, Logo, Website, & Content",
+    mobileText: "Beetle Drones — From Concept to Content",
     cta: "Contact Now",
     href: "https://www.beetledronesmedia.com",
     bg: "bg-green-400",
@@ -30,6 +32,7 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [currentAd, setCurrentAd] = useState(0);
   const [isFading, setIsFading] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
   const { theme, toggleTheme } = useTheme();
 
@@ -49,14 +52,19 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
         setOpenDropdown(null);
+        setMobileMenuOpen(false);
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
   }, []);
 
   const ad = ads[currentAd];
@@ -69,14 +77,23 @@ export default function Header() {
           href={ad.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`w-full ${ad.textColor} py-2 px-4 block transition-opacity duration-500 ${
+          className={`w-full ${ad.textColor} py-2 px-4 block transition-opacity duration-500 touch-manipulation ${
             isFading ? "opacity-0" : "opacity-100"
           }`}
         >
-          <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-sm font-semibold">
+          {/* Desktop Ad */}
+          <div className="hidden sm:flex max-w-7xl mx-auto items-center justify-center gap-3 text-sm font-semibold">
             <img src={ad.logo} alt="Sponsor" className="h-8" />
             <span>{ad.text}</span>
             <span className={`${ad.btnBg} ${ad.btnText} px-3 py-1 rounded-full text-xs font-bold`}>
+              {ad.cta}
+            </span>
+          </div>
+          {/* Mobile Ad */}
+          <div className="flex sm:hidden max-w-7xl mx-auto items-center justify-center gap-2 text-xs font-semibold">
+            <img src={ad.logo} alt="Sponsor" className="h-5" />
+            <span>{ad.mobileText}</span>
+            <span className={`${ad.btnBg} ${ad.btnText} px-2 py-0.5 rounded-full text-xs font-bold whitespace-nowrap`}>
               {ad.cta}
             </span>
           </div>
@@ -92,8 +109,8 @@ export default function Header() {
             EM
           </div>
 
-          {/* Center Dropdown Buttons */}
-          <nav className="flex gap-6">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex gap-6">
             <div className="relative">
               <button
                 onClick={() => toggleDropdown("tutorials")}
@@ -125,7 +142,7 @@ export default function Header() {
             <a href="#" className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400">About</a>
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleTheme}
@@ -146,7 +163,78 @@ export default function Header() {
               className="px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden flex flex-col justify-center items-center gap-1.5 p-3 min-w-[44px] min-h-[44px]"
+            aria-label="Toggle menu"
+          >
+            <span className={`block w-6 h-0.5 bg-gray-800 dark:bg-gray-200 transition-transform duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-gray-800 dark:bg-gray-200 transition-opacity duration-300 ${mobileMenuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-gray-800 dark:bg-gray-200 transition-transform duration-300 ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden mt-4 border-t border-gray-200 dark:border-gray-600 pt-4">
+            <nav className="flex flex-col gap-4">
+              <div>
+                <button
+                  onClick={() => toggleDropdown("tutorials")}
+                  className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 w-full text-left"
+                >
+                  Tutorials ▼
+                </button>
+                {openDropdown === "tutorials" && (
+                  <div className="mt-2 ml-4">
+                    <a href="#" className="block py-3 text-gray-800 dark:text-gray-200 hover:text-green-400 min-h-[44px]">React Basics</a>
+                  </div>
+                )}
+              </div>
+
+              <div>
+                <button
+                  onClick={() => toggleDropdown("projects")}
+                  className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 w-full text-left"
+                >
+                  Projects ▼
+                </button>
+                {openDropdown === "projects" && (
+                  <div className="mt-2 ml-4">
+                    <a href="#" className="block py-3 text-gray-800 dark:text-gray-200 hover:text-green-400 min-h-[44px]">Project 1</a>
+                  </div>
+                )}
+              </div>
+
+              <a href="#" className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400">About</a>
+
+              {/* Mobile Search */}
+              <input
+                type="text"
+                placeholder="Search..."
+                className="px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+
+              {/* Mobile Dark Mode Toggle */}
+              <div className="flex items-center justify-between">
+                <span className="text-gray-800 dark:text-gray-200 font-semibold">Dark Mode</span>
+                <button
+                  onClick={toggleTheme}
+                  className="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-green-400 transition-colors duration-300 focus:outline-none"
+                  aria-label="Toggle dark mode"
+                >
+                  <span
+                    className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300 ${
+                      theme === "dark" ? "translate-x-7" : "translate-x-0"
+                    }`}
+                  />
+                </button>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
