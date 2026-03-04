@@ -102,67 +102,63 @@ export default function Header() {
 
       {/* Main Header */}
       <div className="w-full bg-white dark:bg-gray-800 shadow-md py-4 px-6 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="max-w-3xl mx-auto flex items-center justify-between">
           
           {/* Logo */}
-          <div className="text-2xl font-bold text-green-400">
+          <a href="/" className="text-3xl font-black text-green-400 hover:opacity-80 transition-opacity leading-none">
             EM
-          </div>
+          </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex gap-6">
+          {/* Desktop Nav - Centered */}
+          <nav className="hidden md:flex gap-16">
+            <a href="/about" className="font-extrabold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400">About</a>
+
             <div className="relative">
               <button
-                onClick={() => toggleDropdown("tutorials")}
-                className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400"
+                onClick={() => toggleDropdown("resources")}
+                className="font-extrabold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400"
               >
-                Tutorials ▼
+                Resources
               </button>
-              {openDropdown === "tutorials" && (
-                <div className="absolute top-full mt-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 shadow-lg rounded w-48 z-50">
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">React Basics</a>
+              {openDropdown === "resources" && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 shadow-lg rounded w-48 z-50">
+                  <a href="/tutorials" className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">Tutorials</a>
+                  <a href="/articles" className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">Articles</a>
+                  <a href="/mars" className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">Visit Mars</a>
+                  <a href="/snake" className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">Play Snake</a>
                 </div>
               )}
             </div>
 
             <div className="relative">
               <button
-                onClick={() => toggleDropdown("projects")}
-                className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400"
+                onClick={() => toggleDropdown("contact")}
+                className="font-extrabold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400"
               >
-                Projects ▼
+                Contact
               </button>
-              {openDropdown === "projects" && (
-                <div className="absolute top-full mt-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 shadow-lg rounded w-48 z-50">
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">Project 1</a>
+              {openDropdown === "contact" && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 shadow-lg rounded w-48 z-50">
+                  <a href="https://github.com/everettmerrill" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">GitHub</a>
+                  <a href="https://www.linkedin.com/in/everett-merrill/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">LinkedIn</a>
+                  <a href="mailto:your@email.com" className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">Email</a>
                 </div>
               )}
             </div>
-
-            <a href="#" className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400">About</a>
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-green-400 transition-colors duration-300 focus:outline-none"
-              aria-label="Toggle dark mode"
-            >
-              <span
-                className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300 ${
-                  theme === "dark" ? "translate-x-7" : "translate-x-0"
-                }`}
-              />
-            </button>
-
-            {/* Search Bar */}
-            <input
-              type="text"
-              placeholder="Search..."
-              className="px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          {/* Dark Mode Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="hidden md:block relative w-14 h-7 rounded-full bg-gray-300 dark:bg-green-400 transition-colors duration-300 focus:outline-none"
+            aria-label="Toggle dark mode"
+          >
+            <span
+              className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300 ${
+                theme === "dark" ? "translate-x-7" : "translate-x-0"
+              }`}
             />
-          </div>
+          </button>
 
           {/* Mobile Hamburger */}
           <button
@@ -180,46 +176,46 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 border-t border-gray-200 dark:border-gray-600 pt-4">
             <nav className="flex flex-col gap-4">
+              <a href="/about" className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400">About</a>
+
               <div>
                 <button
-                  onClick={() => toggleDropdown("tutorials")}
+                  onClick={() => toggleDropdown("resources")}
                   className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 w-full text-left"
                 >
-                  Tutorials ▼
+                  Resources
                 </button>
-                {openDropdown === "tutorials" && (
-                  <div className="mt-2 ml-4">
-                    <a href="#" className="block py-3 text-gray-800 dark:text-gray-200 hover:text-green-400 min-h-[44px]">React Basics</a>
+                {openDropdown === "resources" && (
+                  <div className="mt-2 ml-4 flex flex-col gap-1">
+                    <a href="/tutorials" className="block py-3 text-gray-800 dark:text-gray-200 hover:text-green-400 min-h-[44px]">Tutorials</a>
+                    <a href="/articles" className="block py-3 text-gray-800 dark:text-gray-200 hover:text-green-400 min-h-[44px]">Articles</a>
+                    <a href="/mars" className="block py-3 text-gray-800 dark:text-gray-200 hover:text-green-400 min-h-[44px]">Visit Mars</a>
+                    <a href="/snake" className="block py-3 text-gray-800 dark:text-gray-200 hover:text-green-400 min-h-[44px]">Play Snake</a>
                   </div>
                 )}
               </div>
 
               <div>
                 <button
-                  onClick={() => toggleDropdown("projects")}
+                  onClick={() => toggleDropdown("contact")}
                   className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 w-full text-left"
                 >
-                  Projects ▼
+                  Contact
                 </button>
-                {openDropdown === "projects" && (
-                  <div className="mt-2 ml-4">
-                    <a href="#" className="block py-3 text-gray-800 dark:text-gray-200 hover:text-green-400 min-h-[44px]">Project 1</a>
+                {openDropdown === "contact" && (
+                  <div className="mt-2 ml-4 flex flex-col gap-1">
+                    <a href="https://github.com/everettmerrill" target="_blank" rel="noopener noreferrer" className="block py-3 text-gray-800 dark:text-gray-200 hover:text-green-400 min-h-[44px]">GitHub</a>
+                    <a href="https://www.linkedin.com/in/everett-merrill/" target="_blank" rel="noopener noreferrer" className="block py-3 text-gray-800 dark:text-gray-200 hover:text-green-400 min-h-[44px]">LinkedIn</a>
+                    <a href="mailto:your@email.com" className="block py-3 text-gray-800 dark:text-gray-200 hover:text-green-400 min-h-[44px]">Email</a>
                   </div>
                 )}
               </div>
 
-              <a href="#" className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400">About</a>
-
-              {/* Mobile Search */}
-              <input
-                type="text"
-                placeholder="Search..."
-                className="px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-
-              {/* Mobile Dark Mode Toggle */}
+               {/* Mobile Dark Mode Toggle */}
               <div className="flex items-center justify-between">
-                <span className="text-gray-800 dark:text-gray-200 font-semibold">Dark Mode</span>
+                <span className="text-gray-800 dark:text-gray-200 font-semibold">
+                  {theme === "dark" ? "Light Mode" : "Dark Mode"}
+                </span>
                 <button
                   onClick={toggleTheme}
                   className="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-green-400 transition-colors duration-300 focus:outline-none"
