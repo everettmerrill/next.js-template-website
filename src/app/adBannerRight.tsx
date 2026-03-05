@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image";
+import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
 const beetleDronesMediaAdRight = [
@@ -41,14 +43,14 @@ export default function AdBannerRight () {
 const rightAdBanner = beetleDronesMediaAdRight[currentAd];
 
 return (
-    <div>
         <a href={rightAdBanner.href} target="_blank" rel="noopener noreferrer">
-            <img 
+            <Image 
             src={rightAdBanner.image} 
             alt="Beetle Drones Media Ad" 
+            height={600}
+            width={160}
             className={`transition-opacity duration-500 ${isFading ? "opacity-0" : "opacity-100"}`}
             />
         </a>
-    </div>
 );
 }

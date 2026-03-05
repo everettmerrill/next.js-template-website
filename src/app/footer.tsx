@@ -23,7 +23,7 @@ export default function Footer() {
               <a href="/tutorials" className="text-blue-800 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400">Tutorials</a>
               
               <a href="/mars" className="text-blue-800 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400">Visit Mars</a>
-              <a href="/snake" className="text-blue-800 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400">Play Snake</a>
+              <a href="/snake" className="text-blue-800 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400">Play Games</a>
             </nav>
           </div>
 

@@ -1,6 +1,8 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const codeSalmonAdLeft = [
   {
@@ -44,9 +46,11 @@ const leftAdBanner = codeSalmonAdLeft[currentAd];
 return (
     <div>
         <a href={leftAdBanner.href} target="_blank" rel="noopener noreferrer">
-            <img 
+            <Image 
             src={leftAdBanner.image} 
             alt="Code Salmon Ad" 
+            height={600}
+            width={160}
             className={`transition-opacity duration-500 ${isFading ? "opacity-0" : "opacity-100"}`}
             />
         </a>

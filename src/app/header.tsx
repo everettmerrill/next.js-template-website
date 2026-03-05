@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useTheme } from "./ThemeContext";
+import Image from "next/image";
+import Link from "next/link";
 
 const ads = [
   {
@@ -16,7 +18,7 @@ const ads = [
     btnText: "text-black",
   },
   {
-    logo: "beetleDronesMediaLogoSmall.png",
+    logo: "/beetleDronesMediaLogoSmall.png",
     text: "Bespoke Brand Curation: Identity, Logo, Website, & Content",
     mobileText: "Beetle Drones — From Concept to Content",
     cta: "Contact Now",
@@ -73,7 +75,7 @@ export default function Header() {
     <header ref={headerRef}>
       {/* Ad Banner */}
       <div className={`w-full ${ad.bg} transition-colors duration-500`}>
-        <a
+        <Link
           href={ad.href}
           target="_blank"
           rel="noopener noreferrer"
@@ -83,7 +85,10 @@ export default function Header() {
         >
           {/* Desktop Ad */}
           <div className="hidden sm:flex max-w-7xl mx-auto items-center justify-center gap-3 text-sm font-semibold">
-            <img src={ad.logo} alt="Sponsor" className="h-8" />
+            <Image src={ad.logo} 
+            alt="Sponsor" 
+            width={32}
+            height={32}/>
             <span>{ad.text}</span>
             <span className={`${ad.btnBg} ${ad.btnText} px-3 py-1 rounded-full text-xs font-bold`}>
               {ad.cta}
@@ -91,13 +96,13 @@ export default function Header() {
           </div>
           {/* Mobile Ad */}
           <div className="flex sm:hidden max-w-7xl mx-auto items-center justify-center gap-2 text-xs font-semibold">
-            <img src={ad.logo} alt="Sponsor" className="h-5" />
+            <Image src={ad.logo} alt="Sponsor" height={32} width={32} />
             <span>{ad.mobileText}</span>
             <span className={`${ad.btnBg} ${ad.btnText} px-2 py-0.5 rounded-full text-xs font-bold whitespace-nowrap`}>
               {ad.cta}
             </span>
           </div>
-        </a>
+        </Link>
       </div>
 
       {/* Main Header */}
@@ -105,13 +110,13 @@ export default function Header() {
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           
           {/* Logo */}
-          <a href="/" className="text-3xl font-black dark:text-green-400 hover:opacity-80 transition-opacity leading-none">
+          <Link href="/" className="text-3xl font-black dark:text-green-400 hover:opacity-80 transition-opacity leading-none">
             EM
-          </a>
+          </Link>
 
           {/* Desktop Nav - Centered */}
           <nav className="hidden md:flex gap-16">
-            <a href="/about" className="font-extrabold text-blue-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-green-400">About</a>
+            <Link href="/about" className="font-extrabold text-blue-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-green-400">About</Link>
 
             <div className="relative">
               <button
@@ -122,10 +127,10 @@ export default function Header() {
               </button>
               {openDropdown === "resources" && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-pink-200 dark:bg-gray-700 border border-pink-200 dark:border-gray-600 shadow-lg rounded w-48 z-50">
-                  <a href="/tutorials" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Tutorials</a>
-                  <a href="/articles" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Articles</a>
-                  <a href="/mars" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Visit Mars</a>
-                  <a href="/snake" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Play Snake</a>
+                  <Link href="/articles" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Articles</Link>
+                  <Link href="/tutorials" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Tutorials</Link>
+                  <Link href="/snake" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Play Games</Link>
+                  <Link href="/mars" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Visit Mars</Link>
                 </div>
               )}
             </div>
@@ -139,9 +144,9 @@ export default function Header() {
               </button>
               {openDropdown === "contact" && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-pink-200 dark:bg-gray-700 border border-pink-200 dark:border-gray-600 shadow-lg rounded w-48 z-50">
-                  <a href="https://github.com/everettmerrill" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">GitHub</a>
-                  <a href="https://www.linkedin.com/in/everett-merrill/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">LinkedIn</a>
-                  <a href="mailto:your@email.com" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Email</a>
+                  <Link href="https://github.com/everettmerrill" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">GitHub</Link>
+                  <Link href="https://www.linkedin.com/in/everett-merrill/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">LinkedIn</Link>
+                  <Link href="mailto:your@email.com" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Email</Link>
                 </div>
               )}
             </div>
@@ -176,7 +181,7 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 border-t border-gray-200 dark:border-gray-600 pt-4">
             <nav className="flex flex-col gap-4">
-              <a href="/about" className="font-semibold text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400">About</a>
+              <Link href="/about" className="font-semibold text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400">About</Link>
 
               <div>
                 <button
@@ -187,10 +192,10 @@ export default function Header() {
                 </button>
                 {openDropdown === "resources" && (
                   <div className="mt-2 ml-4 flex flex-col gap-1">
-                    <a href="/tutorials" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">Tutorials</a>
-                    <a href="/articles" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">Articles</a>
-                    <a href="/mars" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">Visit Mars</a>
-                    <a href="/snake" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">Play Snake</a>
+                    <Link href="/articles" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">Articles</Link>
+                    <Link href="/tutorials" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">Tutorials</Link>
+                    <Link href="/snake" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">Play Games</Link>
+                    <Link href="/mars" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">Visit Mars</Link>
                   </div>
                 )}
               </div>
@@ -204,9 +209,9 @@ export default function Header() {
                 </button>
                 {openDropdown === "contact" && (
                   <div className="mt-2 ml-4 flex flex-col gap-1">
-                    <a href="https://github.com/everettmerrill" target="_blank" rel="noopener noreferrer" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">GitHub</a>
-                    <a href="https://www.linkedin.com/in/everett-merrill/" target="_blank" rel="noopener noreferrer" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">LinkedIn</a>
-                    <a href="mailto:your@email.com" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">Email</a>
+                    <Link href="https://github.com/everettmerrill" target="_blank" rel="noopener noreferrer" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">GitHub</Link>
+                    <Link href="https://www.linkedin.com/in/everett-merrill/" target="_blank" rel="noopener noreferrer" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">LinkedIn</Link>
+                    <Link href="mailto:your@email.com" className="block py-3 text-blue-1000 hover:text-blue-400 dark:text-gray-200 dark:hover:text-green-400 min-h-[44px]">Email</Link>
                   </div>
                 )}
               </div>
@@ -235,3 +240,4 @@ export default function Header() {
     </header>
   );
 }
+
