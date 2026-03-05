@@ -10,11 +10,11 @@ export default function Home() {
     <div className="main-window p-8">Main Content</div>
   </div>
   {/* Ad stuck to right */}
-  <div className="fixed top-0 right-0 h-full flex items-center px-8">
+  <div className="fixed top-0 right-0 h-full flex items-center px-8 hidden lg:flex">
     <AdBannerRight />
   </div>
   {/* Ad on the left */}
-  <div className="fixed top-0 left-0 h-full flex items-center px-8">
+  <div className="fixed top-0 left-0 h-full flex items-center px-8 hidden md:flex">
     <AdBannerLeft />
   </div>
 </div>
