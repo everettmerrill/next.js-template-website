@@ -44,16 +44,16 @@ export default function AdBannerLeft () {
 const leftAdBanner = codeSalmonAdLeft[currentAd];
 
 return (
-    <div>
+    <div className={`bg-[#ffeea0]`}>
         <a href={leftAdBanner.href} target="_blank" rel="noopener noreferrer">
             <Image 
             src={leftAdBanner.image} 
             alt="Code Salmon Ad" 
             height={600}
             width={160}
-            className={`transition-opacity duration-500 ${isFading ? "opacity-0" : "opacity-100"}`}
+            className={`transition-opacity duration-500 ${isFading ? "opacity-70" : "opacity-100"}`}
             />
         </a>
     </div>
-);
+  );
 }

@@ -127,10 +127,10 @@ export default function Header() {
               </button>
               {openDropdown === "resources" && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-pink-200 dark:bg-gray-700 border border-pink-200 dark:border-gray-600 shadow-lg rounded w-48 z-50">
-                  <Link href="/articles" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Articles</Link>
-                  <Link href="/tutorials" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Tutorials</Link>
-                  <Link href="/snake" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Play Games</Link>
-                  <Link href="/mars" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Visit Mars</Link>
+                  <Link href="/articles" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-green-600">Articles</Link>
+                  <Link href="/tutorials" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-green-600">Tutorials</Link>
+                  <Link href="/snake" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-green-600">Play Games</Link>
+                  <Link href="/mars" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-green-600">Visit Mars</Link>
                 </div>
               )}
             </div>
@@ -144,9 +144,9 @@ export default function Header() {
               </button>
               {openDropdown === "contact" && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-pink-200 dark:bg-gray-700 border border-pink-200 dark:border-gray-600 shadow-lg rounded w-48 z-50">
-                  <Link href="https://github.com/everettmerrill" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">GitHub</Link>
-                  <Link href="https://www.linkedin.com/in/everett-merrill/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">LinkedIn</Link>
-                  <Link href="mailto:your@email.com" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-600">Email</Link>
+                  <Link href="https://github.com/everettmerrill" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-green-600">GitHub</Link>
+                  <Link href="https://www.linkedin.com/in/everett-merrill/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-green-600">LinkedIn</Link>
+                  <Link href="mailto:your@email.com" className="block px-4 py-2 text-blue-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-green-600">Email</Link>
                 </div>
               )}
             </div>
