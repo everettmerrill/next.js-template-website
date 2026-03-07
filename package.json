@@ -4,8 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "splooge": "next dev",
+    "prod": "next build",
     "build": "next build",
+    "wham": "next start",
     "start": "next start",
+    "steez": "eslint",
     "lint": "eslint"
   },
   "dependencies": {
