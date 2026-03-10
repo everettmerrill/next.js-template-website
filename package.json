@@ -1,15 +1,11 @@
 {
-  "name": "everettmerrillsite",
+  "name": "nextjs-website-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "splooge": "next dev",
-    "prod": "next build",
     "build": "next build",
-    "wham": "next start",
     "start": "next start",
-    "steez": "eslint",
     "lint": "eslint"
   },
   "dependencies": {
