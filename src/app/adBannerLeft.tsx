@@ -6,22 +6,24 @@ import Image from "next/image";
 
 const codeSalmonAdLeft = [
   {
-    image: "/CodeSalmonSidePanelAdBanner.png",
+    image: "/SidePanelAd1.png", // <-- Ad your path for first Ad's image here
     cta: "Ad>",
-    href: "https://codesalmon.io/",
+    href: "https://adwebpage.com/",  // <-- Ad your link for first Ad's website here 
     textColor: "text-black",
     btnBg: "bg-yellow-600",
     btnText: "text-black",
   },
   {
-    image: "/CodeSalmonSidePanelAdBanner2.png",
+    image: "/SidePanelAd2.png",
     cta: "Ad>",
-    href: "https://codesalmon.io/",
+    href: "https://adwebpage.net/", // <-- Ad your link for second Ad's website here 
     textColor: "text-black",
     btnBg: "bg-yellow-600",
     btnText: "text-black",
   },
 ];
+
+
 
 export default function AdBannerLeft () {
 
@@ -44,12 +46,12 @@ export default function AdBannerLeft () {
 const leftAdBanner = codeSalmonAdLeft[currentAd];
 
 return (
-    <div className={`bg-[#ffeea0]`}>
+    <div aria-label="You can add a color here if you don't like the fade animation">
         <a href={leftAdBanner.href} target="_blank" rel="noopener noreferrer">
             <Image 
             src={leftAdBanner.image} 
             alt="Code Salmon Ad" 
-            height={600}
+            height={600} // <-- This is in pixels, you can tell design to work with this size or adjust
             width={160}
             className={`transition-opacity duration-500 ${isFading ? "opacity-70" : "opacity-100"}`}
             />
