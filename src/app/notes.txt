@@ -1,0 +1,15 @@
+Dialogue Font:
+font-family: "PKMN RBYGSC", monospace;
+font-size: 16px;
+letter-spacing: 1px;
+
+Pokémon text boxes also used:
+
+2-pixel line spacing
+
+fixed text width
+
+character-by-character typing animation
+
+That typing effect is why the dialogue feels authentic.
+
